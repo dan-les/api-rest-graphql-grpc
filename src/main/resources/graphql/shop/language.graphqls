@@ -1,0 +1,5 @@
+type LanguageDto {
+    languageId: ID,
+    name: String,
+    lastUpdate: Date
+}
