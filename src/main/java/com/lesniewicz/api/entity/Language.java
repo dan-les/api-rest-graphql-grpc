@@ -1,0 +1,33 @@
+package com.lesniewicz.api.entity;
+
+import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.OffsetDateTime;
+import java.util.Set;
+
+
+@Entity
+@Getter
+@Setter
+public class Language {
+
+    @Id
+    @Column(nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer languageId;
+
+    @Column(nullable = false, length = 20)
+    private String name;
+
+    @Column(nullable = false)
+    private OffsetDateTime lastUpdate;
+
+    @OneToMany(mappedBy = "language")
+    private Set<Film> languageFilms;
+
+    @OneToMany(mappedBy = "originalLanguage")
+    private Set<Film> originalLanguageFilms;
+
+}
