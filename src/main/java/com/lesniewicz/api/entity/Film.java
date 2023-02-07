@@ -1,10 +1,10 @@
 package com.lesniewicz.api.entity;
 
-import javax.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.HashSet;
@@ -20,7 +20,7 @@ public class Film {
     @Id
     @Column(nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer filmId;
+    private Long filmId;
 
     @Column(nullable = false, length = 128)
     private String title;

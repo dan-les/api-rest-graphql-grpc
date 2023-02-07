@@ -1,9 +1,9 @@
 package com.lesniewicz.api.entity;
 
-import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.time.OffsetDateTime;
 import java.util.Set;
 
@@ -16,7 +16,7 @@ public class Store {
     @Id
     @Column(nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer storeId;
+    private Long storeId;
 
     @Column(nullable = false)
     private OffsetDateTime lastUpdate;

@@ -4,7 +4,7 @@ package com.lesniewicz.api.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
-public record FilmDto(Integer filmId,
+public record FilmDto(Long filmId,
                       String title,
                       String description,
                       Integer releaseYear,

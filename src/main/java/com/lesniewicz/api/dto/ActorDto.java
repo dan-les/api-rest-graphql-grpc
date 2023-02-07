@@ -1,7 +1,7 @@
 package com.lesniewicz.api.dto;
 
 
-public record ActorDto(Integer id,
+public record ActorDto(Long id,
                        String firstName,
                        String lastName) {
 }

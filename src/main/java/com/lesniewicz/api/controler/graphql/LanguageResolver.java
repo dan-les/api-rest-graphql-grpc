@@ -22,7 +22,7 @@ public class LanguageResolver implements GraphQLQueryResolver {
     public LanguageDto language(@NotNull String languageId) {
         // TODO: 06.02.2023 use proper service/repository directly
         return languageRepository.findAll().stream()
-                .filter(language -> language.getLanguageId().equals(Integer.parseInt(languageId)))
+                .filter(language -> language.getLanguageId().equals(Long.parseLong(languageId)))
                 .map(experimentMapper::mapToLanguageDto)
                 .findFirst()
                 .get();
