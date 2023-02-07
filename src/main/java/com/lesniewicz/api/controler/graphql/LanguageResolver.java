@@ -1,8 +1,7 @@
 package com.lesniewicz.api.controler.graphql;
 
 import com.lesniewicz.api.dto.LanguageDto;
-import com.lesniewicz.api.mapper.ExperimentMapper;
-import com.lesniewicz.api.repository.LanguageRepository;
+import com.lesniewicz.api.service.LanguageService;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,26 +14,15 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 public class LanguageResolver implements GraphQLQueryResolver {
-    private final LanguageRepository languageRepository;
-    private final ExperimentMapper experimentMapper;
-
+    private final LanguageService languageService;
 
     public LanguageDto language(@NotNull String languageId) {
-        // TODO: 06.02.2023 use proper service/repository directly
-        return languageRepository.findAll().stream()
-                .filter(language -> language.getLanguageId().equals(Long.parseLong(languageId)))
-                .map(experimentMapper::mapToLanguageDto)
-                .findFirst()
-                .get();
+        return languageService.getLanguagesById(Long.parseLong(languageId));
     }
 
-    public List<LanguageDto> languages(String languageId,
-                                       String name,
+    public List<LanguageDto> languages(String name,
                                        @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate lastUpdate) {
-        // TODO: 06.02.2023 use proper service/repository directly
-        return languageRepository.findAll().stream()
-                .map(experimentMapper::mapToLanguageDto)
-                .toList();
+        return languageService.getAllLanguagesWithFilters(name, lastUpdate);
     }
 
 }

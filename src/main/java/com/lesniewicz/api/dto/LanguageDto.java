@@ -1,8 +1,8 @@
 package com.lesniewicz.api.dto;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 public record LanguageDto(Long languageId,
                           String name,
-                          OffsetDateTime lastUpdate) {
+                          LocalDate lastUpdate) {
 }

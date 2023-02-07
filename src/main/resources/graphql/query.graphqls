@@ -6,7 +6,6 @@ type Query {
     language (languageId: ID): LanguageDto
 
     languages (
-        languageId: ID,
         name: String,
         lastUpdate: Date
     ) : [LanguageDto]

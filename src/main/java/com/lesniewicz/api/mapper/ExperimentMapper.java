@@ -14,7 +14,7 @@ import java.util.List;
 public class ExperimentMapper {
 
     public LanguageDto mapToLanguageDto(Language language) {
-        return new LanguageDto(language.getLanguageId(), language.getName(), language.getLastUpdate());
+        return new LanguageDto(language.getLanguageId(), language.getName(), language.getLastUpdate().toLocalDate());
     }
 
     public FilmDto mapToFilmDto(Film film) {
