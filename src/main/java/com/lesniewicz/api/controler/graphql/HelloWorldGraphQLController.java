@@ -1,5 +1,6 @@
 package com.lesniewicz.api.controler.graphql;
 
+import com.lesniewicz.api.Message;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 
@@ -8,8 +9,8 @@ public class HelloWorldGraphQLController implements GraphQLQueryResolver {
 
     public static final String HELLO_WORLD_MESSAGE = "Hello, world! It's response from GraphQL endpoint!";
 
-    public String hello() {
-        return HELLO_WORLD_MESSAGE;
+    public Message hello() {
+        return new Message(HELLO_WORLD_MESSAGE);
     }
 
 }

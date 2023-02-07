@@ -1,0 +1,169 @@
+{
+  "info": {
+    "_postman_id": "87aae526-9cb5-4508-97e9-081be3a8c571",
+    "name": "mgr",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15121245"
+  },
+  "item": [
+    {
+      "name": "hello",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOCALHOST}}/rest/hello",
+          "host": [
+            "{{LOCALHOST}}"
+          ],
+          "path": [
+            "rest",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "language",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOCALHOST}}/rest/language",
+          "host": [
+            "{{LOCALHOST}}"
+          ],
+          "path": [
+            "rest",
+            "language"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "film",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{LOCALHOST}}/rest/film",
+          "host": [
+            "{{LOCALHOST}}"
+          ],
+          "path": [
+            "rest",
+            "film"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "hello",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n    hello {\n        text\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "{{LOCALHOST}}/graphql",
+          "host": [
+            "{{LOCALHOST}}"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "language - ID",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n    language (languageId: \"3\") {\n        languageId,\n        name,\n        lastUpdate\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "{{LOCALHOST}}/graphql",
+          "host": [
+            "{{LOCALHOST}}"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "language - list",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n    languages {\n        languageId,\n        name,\n        lastUpdate\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "{{LOCALHOST}}/graphql",
+          "host": [
+            "{{LOCALHOST}}"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "LOCALHOST",
+      "value": "http://localhost:8888/api"
+    }
+  ]
+}
