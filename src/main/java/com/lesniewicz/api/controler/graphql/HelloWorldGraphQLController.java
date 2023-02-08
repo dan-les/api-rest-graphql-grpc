@@ -1,6 +1,6 @@
 package com.lesniewicz.api.controler.graphql;
 
-import com.lesniewicz.api.Message;
+import com.lesniewicz.api.dto.Message;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 

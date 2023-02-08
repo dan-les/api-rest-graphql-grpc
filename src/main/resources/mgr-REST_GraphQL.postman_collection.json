@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "87aae526-9cb5-4508-97e9-081be3a8c571",
-    "name": "mgr",
+    "name": "mgr-REST_GraphQL",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "15121245"
   },
@@ -12,9 +12,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{LOCALHOST}}/rest/hello",
+          "raw": "{{REST_GRAPHQL}}/rest/hello",
           "host": [
-            "{{LOCALHOST}}"
+            "{{REST_GRAPHQL}}"
           ],
           "path": [
             "rest",
@@ -30,9 +30,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{LOCALHOST}}/rest/language",
+          "raw": "{{REST_GRAPHQL}}/rest/language",
           "host": [
-            "{{LOCALHOST}}"
+            "{{REST_GRAPHQL}}"
           ],
           "path": [
             "rest",
@@ -55,9 +55,9 @@
           }
         ],
         "url": {
-          "raw": "{{LOCALHOST}}/rest/film",
+          "raw": "{{REST_GRAPHQL}}/rest/film",
           "host": [
-            "{{LOCALHOST}}"
+            "{{REST_GRAPHQL}}"
           ],
           "path": [
             "rest",
@@ -80,9 +80,9 @@
           }
         },
         "url": {
-          "raw": "{{LOCALHOST}}/graphql",
+          "raw": "{{REST_GRAPHQL}}/graphql",
           "host": [
-            "{{LOCALHOST}}"
+            "{{REST_GRAPHQL}}"
           ],
           "path": [
             "graphql"
@@ -104,9 +104,9 @@
           }
         },
         "url": {
-          "raw": "{{LOCALHOST}}/graphql",
+          "raw": "{{REST_GRAPHQL}}/graphql",
           "host": [
-            "{{LOCALHOST}}"
+            "{{REST_GRAPHQL}}"
           ],
           "path": [
             "graphql"
@@ -128,9 +128,9 @@
           }
         },
         "url": {
-          "raw": "{{LOCALHOST}}/graphql",
+          "raw": "{{REST_GRAPHQL}}/graphql",
           "host": [
-            "{{LOCALHOST}}"
+            "{{REST_GRAPHQL}}"
           ],
           "path": [
             "graphql"
@@ -162,7 +162,7 @@
   ],
   "variable": [
     {
-      "key": "LOCALHOST",
+      "key": "REST_GRAPHQL",
       "value": "http://localhost:8888/api"
     }
   ]

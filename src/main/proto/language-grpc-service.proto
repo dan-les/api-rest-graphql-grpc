@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.lesniewicz.api";
+
+message LanguageRequest{
+  string languageId = 1;
+}
+message LanguageResponse {
+  int64 languageId = 1;
+  string name = 2;
+  string lastUpdate = 3;
+}
+
+service LanguageGrpcService {
+  rpc getLanguage(LanguageRequest) returns (LanguageResponse) {};
+}

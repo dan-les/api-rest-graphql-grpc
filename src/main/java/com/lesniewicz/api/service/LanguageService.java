@@ -22,7 +22,7 @@ public class LanguageService {
 
     @Transactional
     public LanguageDto getLanguagesById(long id) {
-        log.info("Method called: getLanguagesById()");
+        log.info("REST/GraphQL::getLanguagesById()");
         return languageRepository.findById(id)
                 .map(experimentMapper::mapToLanguageDto)
                 .orElseThrow(() -> new ApiExperimentException(Error.LANGUAGE_NOT_FOUND));
@@ -30,7 +30,7 @@ public class LanguageService {
 
     @Transactional
     public List<LanguageDto> getAllLanguagesWithFilters(String name, LocalDate lastUpdate) {
-        log.info("Method called: getAllLanguagesWithFilters()");
+        log.info("REST/GraphQL::getAllLanguagesWithFilters()");
         return languageRepository.findLanguagesWithFilters(name, lastUpdate).stream()
                 .map(experimentMapper::mapToLanguageDto)
                 .toList();

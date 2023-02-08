@@ -1,7 +1,7 @@
 package com.lesniewicz.api.controler.rest;
 
 
-import com.lesniewicz.api.Message;
+import com.lesniewicz.api.dto.Message;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
