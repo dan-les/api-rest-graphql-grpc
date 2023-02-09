@@ -17,7 +17,7 @@
         <java.version>17</java.version>
         <protobuf.version>3.17.3</protobuf.version>
         <protobuf-plugin.version>0.6.1</protobuf-plugin.version>
-        <grpc.version>1.42.1</grpc.version>
+        <grpc.version>1.52.1</grpc.version>
     </properties>
 
     <dependencies>
@@ -87,7 +87,7 @@
         <dependency>
             <groupId>net.devh</groupId>
             <artifactId>grpc-server-spring-boot-starter</artifactId>
-            <version>2.9.0.RELEASE</version>
+            <version>2.14.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
