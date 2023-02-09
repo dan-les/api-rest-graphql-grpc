@@ -1,25 +1,26 @@
 package com.lesniewicz.api.grpcService;
 
-import com.google.protobuf.Empty;
-import com.lesniewicz.api.LanguageGrpcServiceGrpc;
-import com.lesniewicz.api.LanguageRequest;
-import com.lesniewicz.api.LanguagesResponse;
-import com.lesniewicz.api.SingleLanguageResponse;
+import com.lesniewicz.api.*;
 import com.lesniewicz.api.entity.Language;
 import com.lesniewicz.api.exception.ApiExperimentException;
 import com.lesniewicz.api.exception.Error;
 import com.lesniewicz.api.repository.LanguageRepository;
+import com.lesniewicz.api.utils.ApiUtils;
+import graphql.com.google.common.base.Strings;
 import io.grpc.stub.StreamObserver;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDate;
+
 @Slf4j
 @GrpcService
 @AllArgsConstructor
 public class LanguageGrpcService extends LanguageGrpcServiceGrpc.LanguageGrpcServiceImplBase {
     private final LanguageRepository languageRepository;
+    private final ApiUtils apiUtils;
 
     @NotNull
     private static SingleLanguageResponse buildSingleLanguageResponse(Language language) {
@@ -44,11 +45,14 @@ public class LanguageGrpcService extends LanguageGrpcServiceGrpc.LanguageGrpcSer
     }
 
     @Override
-    public void getLanguages(Empty request, StreamObserver<LanguagesResponse> responseObserver) {
+    public void getLanguages(LanguagesRequest request, StreamObserver<LanguagesResponse> responseObserver) {
         log.info("gRPC::getLanguages()");
         LanguagesResponse.Builder languagesResponseBuilder = LanguagesResponse.newBuilder();
 
-        languageRepository.findAll().stream()
+        LocalDate lastUpdateDate = apiUtils.retrieveLocalDate(request.getLastUpdate());
+        String name = Strings.emptyToNull(request.getName());
+
+        languageRepository.findLanguagesWithFilters(name, lastUpdateDate).stream()
                 .map(LanguageGrpcService::buildSingleLanguageResponse)
                 .forEach(languagesResponseBuilder::addLanguages);
 
