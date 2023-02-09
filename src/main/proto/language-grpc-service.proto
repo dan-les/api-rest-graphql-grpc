@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
 
 option java_multiple_files = true;
 option java_package = "com.lesniewicz.api";
@@ -6,12 +7,18 @@ option java_package = "com.lesniewicz.api";
 message LanguageRequest{
   string languageId = 1;
 }
-message LanguageResponse {
+
+message LanguagesResponse {
+  repeated SingleLanguageResponse languages = 1;
+}
+
+message SingleLanguageResponse {
   int64 languageId = 1;
   string name = 2;
   string lastUpdate = 3;
 }
 
 service LanguageGrpcService {
-  rpc getLanguage(LanguageRequest) returns (LanguageResponse) {};
+  rpc getLanguage(LanguageRequest) returns (SingleLanguageResponse) {};
+  rpc getLanguages(google.protobuf.Empty) returns (LanguagesResponse) {};
 }
