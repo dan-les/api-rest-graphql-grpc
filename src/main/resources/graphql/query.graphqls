@@ -10,4 +10,6 @@ type Query {
         lastUpdate: Date
     ) : [LanguageDto]
 
+    films : [FilmDto]
+
 }

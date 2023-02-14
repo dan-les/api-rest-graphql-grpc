@@ -1,0 +1,5 @@
+type ActorDto {
+    actorId: ID,
+    firstName: String,
+    lastName: String
+}

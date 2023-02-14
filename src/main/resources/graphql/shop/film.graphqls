@@ -1,0 +1,19 @@
+type FilmDto {
+    filmId: ID,
+    title : String,
+    description : String,
+    releaseYear : Int,
+    rentalDuration : Int,
+    rentalRate : Float,
+    length: Int,
+    replacementCost : Float,
+    rating : String,
+    specialFeatures: String,
+    lastUpdate: String,
+    language: String,
+    actors: [ActorDto]
+}
+
+
+
+

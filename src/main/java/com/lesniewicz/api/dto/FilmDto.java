@@ -1,7 +1,6 @@
 package com.lesniewicz.api.dto;
 
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public record FilmDto(Long filmId,
@@ -9,14 +8,14 @@ public record FilmDto(Long filmId,
                       String description,
                       Integer releaseYear,
                       Integer rentalDuration,
-                      BigDecimal rentalRate,
+                      Float rentalRate,
                       Integer length,
-                      BigDecimal replacementCost,
+                      Float replacementCost,
                       String rating,
                       String specialFeatures,
                       String lastUpdate,
                       String language,
-                      List<ActorDto> actor
+                      List<ActorDto> actors
 
 ) {
 }
