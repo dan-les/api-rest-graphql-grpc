@@ -1,0 +1,109 @@
+{
+  "info": {
+    "_postman_id": "0b3336a2-c85a-4bed-8d24-d7ef84537a91",
+    "name": "mgr-REST",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15121245"
+  },
+  "item": [
+    {
+      "name": "hello",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/rest/hello",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "rest",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "language - list",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/rest/language",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "rest",
+            "language"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "film - list",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/rest/film",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "rest",
+            "film"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "REST_GRAPHQL",
+      "value": "http://localhost:8888/api"
+    }
+  ]
+}

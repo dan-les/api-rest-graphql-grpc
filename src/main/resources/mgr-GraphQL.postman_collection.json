@@ -1,72 +1,11 @@
 {
   "info": {
     "_postman_id": "87aae526-9cb5-4508-97e9-081be3a8c571",
-    "name": "mgr-REST_GraphQL",
+    "name": "mgr-GraphQL",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "15121245"
   },
   "item": [
-    {
-      "name": "hello",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{REST_GRAPHQL}}/rest/hello",
-          "host": [
-            "{{REST_GRAPHQL}}"
-          ],
-          "path": [
-            "rest",
-            "hello"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "language",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{REST_GRAPHQL}}/rest/language",
-          "host": [
-            "{{REST_GRAPHQL}}"
-          ],
-          "path": [
-            "rest",
-            "language"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "film",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache",
-            "type": "text",
-            "disabled": true
-          }
-        ],
-        "url": {
-          "raw": "{{REST_GRAPHQL}}/rest/film",
-          "host": [
-            "{{REST_GRAPHQL}}"
-          ],
-          "path": [
-            "rest",
-            "film"
-          ]
-        }
-      },
-      "response": []
-    },
     {
       "name": "hello",
       "request": {
@@ -124,6 +63,30 @@
           "mode": "graphql",
           "graphql": {
             "query": "query {\n    languages {\n        languageId,\n        name,\n        lastUpdate\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/graphql",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "film - list",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n    films {\n        filmId,\n        title,\n        description,\n        releaseYear,\n        rentalDuration,\n        rentalRate,\n        length,\n        replacementCost,\n        rating,\n        specialFeatures,\n        lastUpdate,\n        language,\n        actors {\n                actorId,\n                firstName,\n                lastName\n        }\n    }\n}",
             "variables": ""
           }
         },
