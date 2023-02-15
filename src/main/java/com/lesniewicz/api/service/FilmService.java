@@ -19,7 +19,6 @@ public class FilmService {
 
     @Transactional
     public List<FilmDto> getAllFilms() {
-        log.info("REST/GraphQL::getAllFilms()");
         return filmRepository.findAll().stream()
                 .map(experimentMapper::mapToFilmDto)
                 .toList();

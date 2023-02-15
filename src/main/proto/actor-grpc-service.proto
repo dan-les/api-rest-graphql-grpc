@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.lesniewicz.api";
+
+message ActorsResponse {
+  repeated SingleActorResponse actors = 1;
+}
+
+message SingleActorResponse {
+  int64 actorId = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
