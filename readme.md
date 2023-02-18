@@ -4,8 +4,9 @@
   * REST: `/rest/...`
   * GraphQL: `/graphql`
 * api path gRPC: `localhost:8889`
-* Postman API Collection (REST and
-  GraphQL): [mgr-REST_GraphQL.postman_collection.json](src/main/resources/mgr-REST_GraphQL.postman_collection.json)
+* Postman API Collection
+  * [REST](src/main/resources/mgr-REST.postman_collection.json)
+  * [GraphQL](src/main/resources/mgr-GraphQL.postman_collection.json)
 
 ## gRPC Protobuf generation
 
