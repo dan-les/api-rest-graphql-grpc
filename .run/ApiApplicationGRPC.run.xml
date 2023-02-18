@@ -3,7 +3,7 @@
                    factoryName="Spring Boot">
         <module name="api"/>
         <option name="SPRING_BOOT_MAIN_CLASS" value="com.lesniewicz.api.ApiApplication"/>
-        <option name="VM_PARAMETERS" value="-Dserver.port=8883 -Dgrpc.server.port=8803"/>
+        <option name="VM_PARAMETERS" value="-Dserver.port=8883 -Dgrpc.server.port=8803 -DdbPort=3308"/>
         <method v="2">
             <option name="Make" enabled="true"/>
         </method>
