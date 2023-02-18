@@ -31,17 +31,17 @@ public class ExperimentMapper {
                 film.getSpecialFeatures(),
                 film.getLastUpdate().toString(),
                 film.getLanguage().getName(),
-                getActors(film)
+                retrieveActors(film)
         );
+    }
+
+    private List<ActorDto> retrieveActors(Film film) {
+        return film.getActors().stream()
+                .map(this::toActorDto)
+                .toList();
     }
 
     public ActorDto toActorDto(Actor actor) {
         return new ActorDto(actor.getActorId(), actor.getFirstName(), actor.getLastName());
-    }
-
-    private List<ActorDto> getActors(Film film) {
-        return film.getActors().stream()
-                .map(this::toActorDto)
-                .toList();
     }
 }

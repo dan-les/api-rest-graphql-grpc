@@ -59,24 +59,19 @@ public class Film {
     @JoinColumn(name = "original_language_id")
     private Language originalLanguage;
 
-    //    @OneToMany(mappedBy = "film")
-//    private Set<FilmActor> filmFilmActors;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "film_actor",
             joinColumns = @JoinColumn(name = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id"))
     private Set<Actor> actors = new HashSet<>();
 
-    //    @OneToMany(mappedBy = "film")
-//    private Set<FilmCategory> filmFilmCategorys;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "film_category",
             joinColumns = @JoinColumn(name = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
-
-    @OneToMany(mappedBy = "film")
+    @OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
     private Set<Inventory> filmInventorys;
 
 }
