@@ -101,6 +101,30 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "customer - list",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n    customers {\n        customerId,\n         firstName,\n         lastName,\n         email,\n         active,\n         createDate,\n         lastUpdate\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/graphql",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "event": [

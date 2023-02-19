@@ -78,6 +78,31 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "customer - list",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/rest/customer",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "rest",
+            "customer"
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "event": [
