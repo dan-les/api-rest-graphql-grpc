@@ -1,9 +1,11 @@
 package com.lesniewicz.api.mapper;
 
 import com.lesniewicz.api.dto.ActorDto;
+import com.lesniewicz.api.dto.CustomerDto;
 import com.lesniewicz.api.dto.FilmDto;
 import com.lesniewicz.api.dto.LanguageDto;
 import com.lesniewicz.api.entity.Actor;
+import com.lesniewicz.api.entity.Customer;
 import com.lesniewicz.api.entity.Film;
 import com.lesniewicz.api.entity.Language;
 import org.springframework.stereotype.Component;
@@ -43,5 +45,17 @@ public class ExperimentMapper {
 
     public ActorDto toActorDto(Actor actor) {
         return new ActorDto(actor.getActorId(), actor.getFirstName(), actor.getLastName());
+    }
+
+    public CustomerDto mapToCustomerDto(Customer customer) {
+        return new CustomerDto(
+                customer.getCustomerId(),
+                customer.getFirstName(),
+                customer.getLastName(),
+                customer.getEmail(),
+                customer.getActive(),
+                customer.getCreateDate().toLocalDate(),
+                customer.getLastUpdate().toLocalDate()
+        );
     }
 }

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "com.lesniewicz.api";
+
+message CustomerResponse {
+  repeated SingleCustomerResponse customers = 1;
+}
+
+message SingleCustomerResponse {
+  int64 customerId = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  bool active = 5;
+  string createDate = 6;
+  string lastUpdate = 7;
+}
+
+service CustomerGrpcService {
+  rpc getCustomers(google.protobuf.Empty) returns (CustomerResponse) {};
+}

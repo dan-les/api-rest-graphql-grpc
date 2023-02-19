@@ -12,4 +12,6 @@ type Query {
 
     films : [FilmDto]
 
+    customers : [CustomerDto]
+
 }

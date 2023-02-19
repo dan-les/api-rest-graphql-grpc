@@ -1,8 +1,8 @@
 package com.lesniewicz.api.service;
 
-import com.lesniewicz.api.dto.FilmDto;
+import com.lesniewicz.api.dto.CustomerDto;
 import com.lesniewicz.api.mapper.ExperimentMapper;
-import com.lesniewicz.api.repository.FilmRepository;
+import com.lesniewicz.api.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,14 @@ import java.util.List;
 @Slf4j
 @Service
 @AllArgsConstructor
-public class FilmService {
-    private final FilmRepository filmRepository;
+public class CustomerService {
+    private final CustomerRepository customerRepository;
     private final ExperimentMapper experimentMapper;
 
     @Transactional
-    public List<FilmDto> getAllFilms() {
-        return filmRepository.findAll().stream()
-                .map(experimentMapper::mapToFilmDto)
+    public List<CustomerDto> getAllCustomers() {
+        return customerRepository.findAll().stream()
+                .map(experimentMapper::mapToCustomerDto)
                 .toList();
     }
 }

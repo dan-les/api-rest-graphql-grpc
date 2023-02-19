@@ -1,10 +1,8 @@
 package com.lesniewicz.api.mapper;
 
-import com.lesniewicz.api.ActorsResponse;
-import com.lesniewicz.api.SingleActorResponse;
-import com.lesniewicz.api.SingleFilmResponse;
-import com.lesniewicz.api.SingleLanguageResponse;
+import com.lesniewicz.api.*;
 import com.lesniewicz.api.entity.Actor;
+import com.lesniewicz.api.entity.Customer;
 import com.lesniewicz.api.entity.Film;
 import com.lesniewicz.api.entity.Language;
 import org.jetbrains.annotations.NotNull;
@@ -36,7 +34,7 @@ public class GrpcResponseMapper {
                 .setReplacementCost(film.getReplacementCost().floatValue())
                 .setRating(film.getRating())
                 .setSpecialFeatures(film.getSpecialFeatures())
-                .setLastUpdate(film.getLastUpdate().toString())
+                .setLastUpdate(film.getLastUpdate().toLocalDate().toString())
                 .setLanguage(film.getLanguage().getName())
                 .setActors(buildActorsResponse(film.getActors()))
                 .build();
@@ -57,6 +55,18 @@ public class GrpcResponseMapper {
                 .setActorId(actor.getActorId())
                 .setFirstName(actor.getFirstName())
                 .setLastName(actor.getLastName())
+                .build();
+    }
+
+    public SingleCustomerResponse buildSingleCustomerResponse(Customer customer) {
+        return SingleCustomerResponse.newBuilder()
+                .setCustomerId(customer.getCustomerId())
+                .setFirstName(customer.getFirstName())
+                .setLastName(customer.getLastName())
+                .setEmail(customer.getEmail())
+                .setActive(customer.getActive())
+                .setCreateDate(customer.getCreateDate().toLocalDate().toString())
+                .setLastUpdate(customer.getLastUpdate().toLocalDate().toString())
                 .build();
     }
 }

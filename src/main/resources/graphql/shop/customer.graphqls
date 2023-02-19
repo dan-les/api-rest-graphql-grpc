@@ -1,0 +1,9 @@
+type CustomerDto {
+    customerId: ID,
+    firstName: String,
+    lastName: String,
+    email: String,
+    active: Boolean,
+    createDate: Date,
+    lastUpdate: Date
+}
