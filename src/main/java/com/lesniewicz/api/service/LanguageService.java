@@ -1,6 +1,6 @@
 package com.lesniewicz.api.service;
 
-import com.lesniewicz.api.dto.LanguageDto;
+import com.lesniewicz.api.dto.LanguageResponse;
 import com.lesniewicz.api.exception.ApiExperimentException;
 import com.lesniewicz.api.exception.Error;
 import com.lesniewicz.api.mapper.ExperimentMapper;
@@ -19,14 +19,14 @@ public class LanguageService {
     private final ExperimentMapper experimentMapper;
 
     @Transactional
-    public LanguageDto getLanguagesById(long id) {
+    public LanguageResponse getLanguagesById(long id) {
         return languageRepository.findById(id)
                 .map(experimentMapper::mapToLanguageDto)
                 .orElseThrow(() -> new ApiExperimentException(Error.LANGUAGE_NOT_FOUND));
     }
 
     @Transactional
-    public List<LanguageDto> getAllLanguagesWithFilters(String name, LocalDate lastUpdate) {
+    public List<LanguageResponse> getAllLanguagesWithFilters(String name, LocalDate lastUpdate) {
         return languageRepository.findLanguagesWithFilters(name, lastUpdate).stream()
                 .map(experimentMapper::mapToLanguageDto)
                 .toList();

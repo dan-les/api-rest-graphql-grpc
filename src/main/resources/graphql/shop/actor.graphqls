@@ -1,4 +1,4 @@
-type ActorDto {
+type ActorResponse {
     actorId: ID,
     firstName: String,
     lastName: String

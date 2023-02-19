@@ -1,4 +1,4 @@
-type CustomerDto {
+type CustomerResponse {
     customerId: ID,
     firstName: String,
     lastName: String,

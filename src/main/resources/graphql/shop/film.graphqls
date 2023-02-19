@@ -1,4 +1,4 @@
-type FilmDto {
+type FilmResponse {
     filmId: ID,
     title : String,
     description : String,
@@ -11,7 +11,7 @@ type FilmDto {
     specialFeatures: String,
     lastUpdate: String,
     language: String,
-    actors: [ActorDto]
+    actors: [ActorResponse]
 }
 
 

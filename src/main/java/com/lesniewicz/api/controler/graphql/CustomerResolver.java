@@ -1,6 +1,6 @@
 package com.lesniewicz.api.controler.graphql;
 
-import com.lesniewicz.api.dto.CustomerDto;
+import com.lesniewicz.api.dto.CustomerResponse;
 import com.lesniewicz.api.service.CustomerService;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.List;
 public class CustomerResolver implements GraphQLQueryResolver {
     private final CustomerService customerService;
 
-    public List<CustomerDto> customers() {
+    public List<CustomerResponse> customers() {
         log.info("GraphQL::getAllCustomers()");
         return customerService.getAllCustomers();
     }

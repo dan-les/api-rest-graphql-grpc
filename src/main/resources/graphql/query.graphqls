@@ -3,15 +3,15 @@ scalar Date
 type Query {
     hello : Message
 
-    language (languageId: ID): LanguageDto
+    language (languageId: ID): LanguageResponse
 
     languages (
         name: String,
         lastUpdate: Date
-    ) : [LanguageDto]
+    ) : [LanguageResponse]
 
-    films : [FilmDto]
+    films : [FilmResponse]
 
-    customers : [CustomerDto]
+    customers : [CustomerResponse]
 
 }

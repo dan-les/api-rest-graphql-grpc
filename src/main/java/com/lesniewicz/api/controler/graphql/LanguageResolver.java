@@ -1,6 +1,6 @@
 package com.lesniewicz.api.controler.graphql;
 
-import com.lesniewicz.api.dto.LanguageDto;
+import com.lesniewicz.api.dto.LanguageResponse;
 import com.lesniewicz.api.service.LanguageService;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.AllArgsConstructor;
@@ -18,13 +18,13 @@ import java.util.List;
 public class LanguageResolver implements GraphQLQueryResolver {
     private final LanguageService languageService;
 
-    public LanguageDto language(@NotNull String languageId) {
+    public LanguageResponse language(@NotNull String languageId) {
         log.info("GraphQL::getLanguageById()");
         return languageService.getLanguagesById(Long.parseLong(languageId));
     }
 
-    public List<LanguageDto> languages(String name,
-                                       @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate lastUpdate) {
+    public List<LanguageResponse> languages(String name,
+                                            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate lastUpdate) {
         log.info("GraphQL::getAllLanguages()");
         return languageService.getAllLanguagesWithFilters(name, lastUpdate);
     }

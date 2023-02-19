@@ -1,4 +1,4 @@
-type LanguageDto {
+type LanguageResponse {
     languageId: ID,
     name: String,
     lastUpdate: Date

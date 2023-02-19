@@ -15,7 +15,7 @@ public record FilmDto(Long filmId,
                       String specialFeatures,
                       String lastUpdate,
                       String language,
-                      List<ActorDto> actors
+                      List<ActorResponse> actors
 
 ) {
 }

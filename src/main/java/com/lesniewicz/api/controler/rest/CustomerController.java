@@ -1,7 +1,7 @@
 package com.lesniewicz.api.controler.rest;
 
 
-import com.lesniewicz.api.dto.CustomerDto;
+import com.lesniewicz.api.dto.CustomerResponse;
 import com.lesniewicz.api.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ public class CustomerController {
     @GetMapping("/customer")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<CustomerDto> getAllCustomers() {
+    public List<CustomerResponse> getAllCustomers() {
         log.info("REST::getAllCustomers()");
         return customerService.getAllCustomers();
     }

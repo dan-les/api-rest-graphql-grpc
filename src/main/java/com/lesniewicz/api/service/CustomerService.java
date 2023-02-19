@@ -1,6 +1,6 @@
 package com.lesniewicz.api.service;
 
-import com.lesniewicz.api.dto.CustomerDto;
+import com.lesniewicz.api.dto.CustomerResponse;
 import com.lesniewicz.api.mapper.ExperimentMapper;
 import com.lesniewicz.api.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,7 @@ public class CustomerService {
     private final ExperimentMapper experimentMapper;
 
     @Transactional
-    public List<CustomerDto> getAllCustomers() {
+    public List<CustomerResponse> getAllCustomers() {
         return customerRepository.findAll().stream()
                 .map(experimentMapper::mapToCustomerDto)
                 .toList();
