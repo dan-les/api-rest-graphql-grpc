@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface LanguageRepository extends JpaRepository<Language, Long> {
@@ -18,4 +19,6 @@ public interface LanguageRepository extends JpaRepository<Language, Long> {
             + "(:lastUpdate IS NULL OR language.lastUpdate = :lastUpdate) ")
     List<Language> findLanguagesWithFilters(String name, LocalDate lastUpdate);
 
+
+    Optional<Language> findByName(String name);
 }

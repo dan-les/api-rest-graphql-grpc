@@ -1,7 +1,6 @@
 package com.lesniewicz.api.grpcService;
 
 import com.lesniewicz.api.*;
-import com.lesniewicz.api.entity.Language;
 import com.lesniewicz.api.exception.ApiExperimentException;
 import com.lesniewicz.api.exception.Error;
 import com.lesniewicz.api.mapper.GrpcResponseMapper;
@@ -28,10 +27,10 @@ public class LanguageGrpcService extends LanguageGrpcServiceGrpc.LanguageGrpcSer
                             StreamObserver<SingleLanguageResponse> responseObserver) {
         log.info("gRPC::getLanguage()");
 
-        Language language = languageRepository.findById(Long.parseLong(request.getLanguageId()))
+        SingleLanguageResponse singleLanguageResponse = languageRepository.findById(Long.parseLong(request.getLanguageId()))
+                .map(grpcResponseMapper::buildSingleLanguageResponse)
                 .orElseThrow(() -> new ApiExperimentException(Error.LANGUAGE_NOT_FOUND));
 
-        SingleLanguageResponse singleLanguageResponse = grpcResponseMapper.buildSingleLanguageResponse(language);
         responseObserver.onNext(singleLanguageResponse);
         responseObserver.onCompleted();
     }

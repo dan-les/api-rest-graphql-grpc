@@ -7,7 +7,8 @@ import org.springframework.http.HttpStatus;
 @Getter
 @AllArgsConstructor
 public enum Error {
-    LANGUAGE_NOT_FOUND("Language not found", HttpStatus.NOT_FOUND);
+    LANGUAGE_NOT_FOUND("Language not found", HttpStatus.NOT_FOUND),
+    FILM_NOT_FOUND("Film not found", HttpStatus.NOT_FOUND);
 
     private final String message;
     private final HttpStatus httpStatus;

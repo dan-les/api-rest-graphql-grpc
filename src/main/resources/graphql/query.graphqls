@@ -12,6 +12,8 @@ type Query {
 
     films : [FilmResponse]
 
+    film (filmId: ID): FilmResponse
+
     customers : [CustomerResponse]
 
 }

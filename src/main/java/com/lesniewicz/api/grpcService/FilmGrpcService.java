@@ -2,7 +2,11 @@ package com.lesniewicz.api.grpcService;
 
 import com.google.protobuf.Empty;
 import com.lesniewicz.api.FilmGrpcServiceGrpc;
+import com.lesniewicz.api.FilmRequest;
 import com.lesniewicz.api.FilmsResponse;
+import com.lesniewicz.api.SingleFilmResponse;
+import com.lesniewicz.api.exception.ApiExperimentException;
+import com.lesniewicz.api.exception.Error;
 import com.lesniewicz.api.mapper.GrpcResponseMapper;
 import com.lesniewicz.api.repository.FilmRepository;
 import io.grpc.stub.StreamObserver;
@@ -18,6 +22,19 @@ import javax.transaction.Transactional;
 public class FilmGrpcService extends FilmGrpcServiceGrpc.FilmGrpcServiceImplBase {
     private final FilmRepository filmRepository;
     private final GrpcResponseMapper grpcResponseMapper;
+
+    @Override
+    @Transactional
+    public void getFilm(FilmRequest request, StreamObserver<SingleFilmResponse> responseObserver) {
+        log.info("gRPC::getFilm()");
+
+        SingleFilmResponse singleFilmResponse = filmRepository.findById(Long.parseLong(request.getFilmId()))
+                .map(grpcResponseMapper::buildSingleFilmResponse)
+                .orElseThrow(() -> new ApiExperimentException(Error.FILM_NOT_FOUND));
+
+        responseObserver.onNext(singleFilmResponse);
+        responseObserver.onCompleted();
+    }
 
     @Override
     @Transactional

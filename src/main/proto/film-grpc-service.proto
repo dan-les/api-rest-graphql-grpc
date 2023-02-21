@@ -6,6 +6,10 @@ import "actor-grpc-service.proto";
 option java_multiple_files = true;
 option java_package = "com.lesniewicz.api";
 
+message FilmRequest{
+  string filmId = 1;
+}
+
 message FilmsResponse {
   repeated SingleFilmResponse languages = 1;
 }
@@ -27,5 +31,6 @@ message SingleFilmResponse {
 }
 
 service FilmGrpcService {
+  rpc getFilm(FilmRequest) returns (SingleFilmResponse) {};
   rpc getFilms(google.protobuf.Empty) returns (FilmsResponse) {};
 }
