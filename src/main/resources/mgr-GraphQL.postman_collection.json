@@ -55,6 +55,30 @@
       "response": []
     },
     {
+      "name": "film - ID",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\n    film (filmId: \"5\") {\n        filmId,\n        title,\n        description,\n        releaseYear,\n        rentalDuration,\n        rentalRate,\n        length,\n        replacementCost,\n        rating,\n        specialFeatures,\n        lastUpdate,\n        language,\n        actors {\n                actorId,\n                firstName,\n                lastName\n        }\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/graphql",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "language - list",
       "request": {
         "method": "POST",
@@ -87,6 +111,30 @@
           "mode": "graphql",
           "graphql": {
             "query": "query {\n    films {\n        filmId,\n        title,\n        description,\n        releaseYear,\n        rentalDuration,\n        rentalRate,\n        length,\n        replacementCost,\n        rating,\n        specialFeatures,\n        lastUpdate,\n        language,\n        actors {\n                actorId,\n                firstName,\n                lastName\n        }\n    }\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/graphql",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "film - add",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation {\n  createFilm(\n    film: {\n      title: \"AFRICAN EGG 2\"\n      description: \"A Fast-Paced Documentary of a Pastry Chef And a Dentist who must Pursue a Forensic Psychologist in The Gulf of Mexico\"\n      releaseYear: 2006\n      rentalDuration: 6\n      rentalRate: 2.99\n      length: 130\n      replacementCost: 22.99\n      rating: \"G\"\n      specialFeatures: \"Deleted Scenes\"\n      language: \"English\"\n      actorsIds: [21, 51, 103, 104]\n    }\n  ) {\n    filmId\n    title\n    description\n    releaseYear\n    rentalDuration\n    rentalRate\n    length\n    replacementCost\n    rating\n    specialFeatures\n    lastUpdate\n    language\n    actors {\n      actorId\n      firstName\n      lastName\n    }\n  }\n}\n",
             "variables": ""
           }
         },

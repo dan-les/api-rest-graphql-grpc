@@ -80,6 +80,66 @@
       "response": []
     },
     {
+      "name": "film - ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/rest/film/5",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "rest",
+            "film",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "film - add",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"AFRICAN EGG 2\",\r\n    \"description\": \"A Fast-Paced Documentary of a Pastry Chef And a Dentist who must Pursue a Forensic Psychologist in The Gulf of Mexico\",\r\n    \"releaseYear\": 2006,\r\n    \"rentalDuration\": 6,\r\n    \"rentalRate\": 2.99,\r\n    \"length\": 130,\r\n    \"replacementCost\": 22.99,\r\n    \"rating\": \"G\",\r\n    \"specialFeatures\": \"Deleted Scenes\",\r\n    \"lastUpdate\": \"2006-02-15T06:03:42+01:00\",\r\n    \"language\": \"English\",\r\n    \"actorsIds\": [\r\n        21,\r\n        51,\r\n        103,\r\n        104\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{REST_GRAPHQL}}/rest/film",
+          "host": [
+            "{{REST_GRAPHQL}}"
+          ],
+          "path": [
+            "rest",
+            "film"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "customer - list",
       "request": {
         "method": "GET",
