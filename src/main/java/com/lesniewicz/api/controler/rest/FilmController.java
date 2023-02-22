@@ -16,11 +16,11 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/rest", produces = "application/json")
+@RequestMapping(value = "/rest/film", produces = "application/json")
 public class FilmController {
     private final FilmService filmService;
 
-    @GetMapping("/film/{filmId}")
+    @GetMapping("/{filmId}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public FilmResponse getAllLanguages(@PathVariable Long filmId) {
@@ -28,7 +28,7 @@ public class FilmController {
         return filmService.getFilmById(filmId);
     }
 
-    @GetMapping("/film")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<FilmResponse> getAllFilms() {
@@ -36,8 +36,9 @@ public class FilmController {
         return filmService.getAllFilms();
     }
 
-    @PostMapping("/film")
-    public FilmResponse addFilm(@Valid @RequestBody FilmRequest filmRequest) {
+    @PostMapping
+    public FilmResponse createFilm(@Valid @RequestBody FilmRequest filmRequest) {
+        log.info("REST::createFilm()");
         return filmService.addFilm(filmRequest);
     }
 

@@ -14,11 +14,11 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/rest", produces = "application/json")
+@RequestMapping(value = "/rest/customer", produces = "application/json")
 public class CustomerController {
     private final CustomerService customerService;
 
-    @GetMapping("/customer")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<CustomerResponse> getAllCustomers() {

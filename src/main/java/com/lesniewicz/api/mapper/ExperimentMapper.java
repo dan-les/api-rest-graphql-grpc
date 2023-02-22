@@ -30,7 +30,7 @@ public class ExperimentMapper {
                 film.getReplacementCost().floatValue(),
                 film.getRating(),
                 film.getSpecialFeatures(),
-                film.getLastUpdate().toString(),
+                film.getLastUpdate().toLocalDate().toString(),
                 film.getLanguage().getName(),
                 retrieveActors(film)
         );

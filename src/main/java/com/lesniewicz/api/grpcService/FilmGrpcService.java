@@ -1,14 +1,15 @@
 package com.lesniewicz.api.grpcService;
 
 import com.google.protobuf.Empty;
-import com.lesniewicz.api.FilmGrpcServiceGrpc;
-import com.lesniewicz.api.FilmRequest;
-import com.lesniewicz.api.FilmsResponse;
-import com.lesniewicz.api.SingleFilmResponse;
+import com.lesniewicz.api.*;
+import com.lesniewicz.api.entity.Film;
 import com.lesniewicz.api.exception.ApiExperimentException;
 import com.lesniewicz.api.exception.Error;
+import com.lesniewicz.api.mapper.GrpcRequestMapper;
 import com.lesniewicz.api.mapper.GrpcResponseMapper;
 import com.lesniewicz.api.repository.FilmRepository;
+import com.lesniewicz.api.service.ActorService;
+import com.lesniewicz.api.service.LanguageService;
 import io.grpc.stub.StreamObserver;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,9 @@ import javax.transaction.Transactional;
 public class FilmGrpcService extends FilmGrpcServiceGrpc.FilmGrpcServiceImplBase {
     private final FilmRepository filmRepository;
     private final GrpcResponseMapper grpcResponseMapper;
+    private final GrpcRequestMapper grpcRequestMapper;
+    private final ActorService actorService;
+    private final LanguageService languageService;
 
     @Override
     @Transactional
@@ -48,6 +52,20 @@ public class FilmGrpcService extends FilmGrpcServiceGrpc.FilmGrpcServiceImplBase
 
         FilmsResponse filmsResponse = filmResponseBuilder.build();
         responseObserver.onNext(filmsResponse);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void createFilm(CreateFilmRequest request, StreamObserver<SingleFilmResponse> responseObserver) {
+        log.info("gRPC::createFilm()");
+        Film film = grpcRequestMapper.buildFilm(request);
+        film.setLanguage(languageService.retrieveLanguageByName(request.getLanguage()));
+        film.setActors(actorService.retrieveActorsByIds(request.getActorsIdsList()));
+
+        film = filmRepository.save(film);
+
+        SingleFilmResponse singleFilmResponse = grpcResponseMapper.buildSingleFilmResponse(film);
+        responseObserver.onNext(singleFilmResponse);
         responseObserver.onCompleted();
     }
 

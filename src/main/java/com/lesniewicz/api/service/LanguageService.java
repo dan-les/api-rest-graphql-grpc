@@ -1,6 +1,7 @@
 package com.lesniewicz.api.service;
 
 import com.lesniewicz.api.dto.LanguageResponse;
+import com.lesniewicz.api.entity.Language;
 import com.lesniewicz.api.exception.ApiExperimentException;
 import com.lesniewicz.api.exception.Error;
 import com.lesniewicz.api.mapper.ExperimentMapper;
@@ -31,4 +32,11 @@ public class LanguageService {
                 .map(experimentMapper::mapToLanguageDto)
                 .toList();
     }
+
+    @Transactional
+    public Language retrieveLanguageByName(String languageName) {
+        return languageRepository.findByName(languageName)
+                .orElseThrow(() -> new ApiExperimentException(Error.LANGUAGE_NOT_FOUND));
+    }
+
 }

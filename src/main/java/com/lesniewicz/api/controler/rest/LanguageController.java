@@ -14,11 +14,11 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/rest", produces = "application/json")
+@RequestMapping(value = "/rest/language", produces = "application/json")
 public class LanguageController {
     private final LanguageService languageService;
 
-    @GetMapping("/language")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<LanguageResponse> getAllLanguages(@RequestBody LanguageRequest languageRequest) {
