@@ -5,7 +5,6 @@ import com.lesniewicz.api.entity.Actor;
 import com.lesniewicz.api.entity.Customer;
 import com.lesniewicz.api.entity.Film;
 import com.lesniewicz.api.entity.Language;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -13,7 +12,6 @@ import java.util.Set;
 @Component
 public class GrpcResponseMapper {
 
-    @NotNull
     public SingleLanguageResponse buildSingleLanguageResponse(Language language) {
         return SingleLanguageResponse.newBuilder()
                 .setLanguageId(language.getLanguageId())
