@@ -32,11 +32,11 @@ public class ExperimentMapper {
                 film.getSpecialFeatures(),
                 film.getLastUpdate().toLocalDate().toString(),
                 film.getLanguage().getName(),
-                retrieveActors(film)
+                mapActors(film)
         );
     }
 
-    private List<ActorResponse> retrieveActors(Film film) {
+    private List<ActorResponse> mapActors(Film film) {
         return film.getActors().stream()
                 .map(this::toActorDto)
                 .toList();

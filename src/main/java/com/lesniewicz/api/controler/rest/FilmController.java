@@ -6,7 +6,6 @@ import com.lesniewicz.api.dto.FilmResponse;
 import com.lesniewicz.api.service.FilmService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,7 +20,6 @@ public class FilmController {
     private final FilmService filmService;
 
     @GetMapping("/{filmId}")
-    @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public FilmResponse getAllLanguages(@PathVariable Long filmId) {
         log.info("REST::getFilmById()");
@@ -29,7 +27,6 @@ public class FilmController {
     }
 
     @GetMapping
-    @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<FilmResponse> getAllFilms() {
         log.info("REST::getAllFilms()");
