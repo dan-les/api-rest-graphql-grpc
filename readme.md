@@ -25,6 +25,8 @@ Maven run configuration is also stored in [.run/](.run/) directory.
 * how to run:
     ```shell
     docker run -p 3306:3306 -d sakiladb/mysql:latest
+    docker run -p 3307:3306 -d sakiladb/mysql:latest
+    docker run -p 3308:3306 -d sakiladb/mysql:latest
     ```
 
 ## Important files
