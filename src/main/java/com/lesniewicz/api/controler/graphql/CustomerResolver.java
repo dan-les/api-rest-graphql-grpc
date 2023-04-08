@@ -19,5 +19,4 @@ public class CustomerResolver implements GraphQLQueryResolver {
         log.info("GraphQL::getAllCustomers()");
         return customerService.getAllCustomers();
     }
-
 }

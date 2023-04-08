@@ -9,7 +9,5 @@ public record CustomerResponse(Long customerId,
                                String email,
                                Boolean active,
                                LocalDate createDate,
-                               LocalDate lastUpdate
-
-) {
+                               LocalDate lastUpdate) {
 }

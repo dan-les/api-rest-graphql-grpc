@@ -21,7 +21,7 @@ public class FilmController {
 
     @GetMapping("/{filmId}")
     @ResponseBody
-    public FilmResponse getAllLanguages(@PathVariable Long filmId) {
+    public FilmResponse getFilmById(@PathVariable Long filmId) {
         log.info("REST::getFilmById()");
         return filmService.getFilmById(filmId);
     }
